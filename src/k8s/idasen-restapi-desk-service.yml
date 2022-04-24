@@ -8,9 +8,9 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 80
+    port: 40080
     protocol: TCP
     targetPort: 80
-  selector:    
+  selector:
     app: idasen-restapi-desk
-  type: ClusterIP
+  type: LoadBalancer

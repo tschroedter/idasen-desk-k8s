@@ -17,6 +17,34 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idasen.RESTAPI.MicroService
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idasen.RESTAPI.Desk.Emulator", "Idasen.RESTAPI.Desk.Emulator\Idasen.RESTAPI.Desk.Emulator.csproj", "{B73E9F8E-24F4-4B01-BEED-FAE1639CE497}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{59F2D8CD-9568-4B5A-AB6E-A428C122587A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "height", "height", "{DE0041AC-6A32-430D-810D-09EBF82B4EDB}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\idasen-restapi-microservice-desk-height-deployment.yml = k8s\idasen-restapi-microservice-desk-height-deployment.yml
+		k8s\idasen-restapi-microservice-desk-height-service.yml = k8s\idasen-restapi-microservice-desk-height-service.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "desk", "desk", "{B9ED0ABB-39D4-466A-80F7-C88355B1C050}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\idasen-restapi-microservice-desk-deployment.yml = k8s\idasen-restapi-microservice-desk-deployment.yml
+		k8s\idasen-restapi-microservice-desk-service.yml = k8s\idasen-restapi-microservice-desk-service.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "emulator", "emulator", "{BC9BCED3-7D79-4A68-8D8D-C307142788F2}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\idasen-restapi-desk-emulator-deployment.yml = k8s\idasen-restapi-desk-emulator-deployment.yml
+		k8s\idasen-restapi-desk-emulator-service.yml = k8s\idasen-restapi-desk-emulator-service.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "restapi", "restapi", "{9A2F58F7-A595-4BF5-9707-F4A9AE68AF32}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\idasen-restapi-desk-deployment.yml = k8s\idasen-restapi-desk-deployment.yml
+		k8s\idasen-restapi-desk-service.yml = k8s\idasen-restapi-desk-service.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "microsservices", "microsservices", "{4B8845E8-9187-425B-A59D-B962AF9C859D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +78,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8DBCEAE4-A653-490F-8F45-A5A9CAF1BB74} = {275B6E0E-8B8F-4FE8-9AD9-6E57364A196F}
 		{B73E9F8E-24F4-4B01-BEED-FAE1639CE497} = {A5771779-EE08-4775-B055-5B7D3644AA6E}
+		{DE0041AC-6A32-430D-810D-09EBF82B4EDB} = {4B8845E8-9187-425B-A59D-B962AF9C859D}
+		{B9ED0ABB-39D4-466A-80F7-C88355B1C050} = {4B8845E8-9187-425B-A59D-B962AF9C859D}
+		{BC9BCED3-7D79-4A68-8D8D-C307142788F2} = {59F2D8CD-9568-4B5A-AB6E-A428C122587A}
+		{9A2F58F7-A595-4BF5-9707-F4A9AE68AF32} = {4B8845E8-9187-425B-A59D-B962AF9C859D}
+		{4B8845E8-9187-425B-A59D-B962AF9C859D} = {59F2D8CD-9568-4B5A-AB6E-A428C122587A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6182A15D-1496-48B3-A5BA-F1CE2AEDED30}
