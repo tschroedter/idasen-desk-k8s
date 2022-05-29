@@ -1,23 +1,9 @@
 using Idasen.RESTAPI.MicroService.Shared.Extensions ;
 using Idasen.RESTAPI.MicroService.Shared.Interfaces ;
+using Idasen.RESTAPI.MicroService.Shared.Settings ;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks ;
-using Serilog ;
 
 var builder = WebApplication.CreateBuilder ( args ) ;
-
-// Add services to the container.
-// builder.Logging.ClearProviders ( ) ;
-// builder.Logging.AddConsole ( ) ;
-builder.Logging.ClearProviders ( ) ;
-builder.Host.UseSerilog ( ( _ ,
-                            lc ) => lc
-                                   .WriteTo.Console ( )
-                                   .WriteTo.File ( "logs/desk.log" ) ) ;
-
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer ( ) ;
-builder.Services.AddSwaggerGen ( ) ;
 
 builder.AddMicroServiceShared ( ) ;
 
@@ -29,6 +15,10 @@ if ( app.Environment.IsDevelopment ( ) )
     app.UseSwagger ( ) ;
     app.UseSwaggerUI ( ) ;
 }
+
+var test = builder.Configuration
+                  .GetSection ( nameof ( MicroServicesSettings ) )
+                  .Get < IList < MicroServiceSettings > > ( ) ;
 
 app.UseHttpsRedirection ( ) ;
 app.MapHealthChecks ( "/healthz" ) ;
@@ -65,7 +55,7 @@ app.MapGet ( "/settings" ,
              async httpContext =>
              {
                  await app.Services
-                          .GetService <ISettingsResponseCreator> (  )!
+                          .GetService < ISettingsResponseCreator > ( )!
                           .Response ( app.Services ,
                                       httpContext ) ;
              } )

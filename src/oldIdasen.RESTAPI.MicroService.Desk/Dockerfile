@@ -2,11 +2,12 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 5280:5280
+EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Idasen.RESTAPI.MicroService.Desk/Idasen.RESTAPI.MicroService.Desk.csproj", "Idasen.RESTAPI.MicroService.Desk/"]
+COPY ["Idasen.RESTAPI.MicroService.Shared/Idasen.RESTAPI.MicroService.Shared.csproj", "Idasen.RESTAPI.MicroService.Shared/"]
 RUN dotnet restore "Idasen.RESTAPI.MicroService.Desk/Idasen.RESTAPI.MicroService.Desk.csproj"
 COPY . .
 WORKDIR "/src/Idasen.RESTAPI.MicroService.Desk"

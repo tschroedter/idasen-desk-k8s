@@ -8,8 +8,8 @@ spec:
   selector:
     matchLabels:
       app: idasen-restapi-microservice-desk
-  replicas: 1 
-  template: 
+  replicas: 1
+  template:
     metadata:
       labels:
         app: idasen-restapi-microservice-desk
@@ -17,6 +17,9 @@ spec:
       containers:
       - name: idasen-restapi-microservice-desk
         image: ajoebcool/idasenrestapimicroservicedesk
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
         ports:
         - containerPort: 80
         livenessProbe:
@@ -34,5 +37,10 @@ spec:
           initialDelaySeconds: 15
           timeoutSeconds: 2
           periodSeconds: 5
-
-      #- image: ajoebcool/idasenrestapimicroservicedesk
+        resources:
+            requests:
+                memory: "500Mi"
+                cpu: "10m"
+            limits:
+                memory: "1000Mi"
+                cpu: "100m"

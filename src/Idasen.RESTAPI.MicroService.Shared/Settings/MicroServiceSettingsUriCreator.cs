@@ -28,4 +28,22 @@ public class MicroServiceSettingsUriCreator : IMicroServiceSettingsUriCreator
 
         return uri ;
     }
+
+    public Uri GetReadinessUri(MicroServiceSettings settings)
+    {
+        _logger.Information($"{nameof(MicroServiceSettings)}: {settings}");
+
+        var uriString = settings.Protocol +
+                        "://"             +
+                        settings.Host     +
+                        ":"               +
+                        settings.Port     +
+                        settings.Readiness;
+
+        var uri = new Uri(uriString);
+
+        _logger.Information($"Create Uri: {uri}");
+
+        return uri;
+    }
 }

@@ -1,25 +1,28 @@
 {
+  "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:1181",
-      "sslPort": 44300
+      "applicationUrl": "http://localhost:9657",
+      "sslPort": 44313
     }
   },
   "profiles": {
-    "Idasen.RESTAPI.MicroService.Desk.Height": {
+    "Idasen.RESTAPI.MicroService.Desk": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:7000;http://localhost:5000",
+      "applicationUrl": "https://localhost:7040;http://localhost:5041",
       "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -27,13 +30,13 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5380/desk/height/",
+      "launchUrl": "http://localhost:5180/desk/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Docker"
       },
-      "DockerfileRunArguments": "--net idasen-restapi -p 5380:5380",
+      "DockerfileRunArguments": "--net idasen-restapi -p 5180:5180",
       "publishAllPorts": true,
-      "useSSL": false
+      "useSSL": true
     }
   }
 }

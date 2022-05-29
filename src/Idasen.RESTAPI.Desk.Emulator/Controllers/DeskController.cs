@@ -22,6 +22,7 @@ public class DeskController : ControllerBase
     [ HttpGet ]
     public IActionResult GetDesk ( )
     {
+        
         _logger.LogInformation ( "DeskController.GetDesk()" ) ;
 
         var dto = new DeskDto

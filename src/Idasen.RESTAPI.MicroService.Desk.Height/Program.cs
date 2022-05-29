@@ -1,19 +1,8 @@
 using Idasen.RESTAPI.MicroService.Shared.Extensions;
 using Idasen.RESTAPI.MicroService.Shared.Interfaces;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Logging.ClearProviders();
-builder.Host.UseSerilog((_,
-                         lc) => lc
-                               .WriteTo.Console()
-                               .WriteTo.File("logs/desk.log"));
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 builder.AddMicroServiceShared();
 
@@ -26,7 +15,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.LogAppSettings();
+//app.UseHttpsRedirection();
 app.MapHealthChecks("/healthz");
 app.MapHealthChecks("/healthz/ready",
                     new HealthCheckOptions

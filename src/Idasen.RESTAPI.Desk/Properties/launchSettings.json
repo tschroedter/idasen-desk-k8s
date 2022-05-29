@@ -30,9 +30,13 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "launchUrl": "http://localhost:5180/desk/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Docker"
+      },
+      "DockerfileRunArguments": "--net idasen-restapi -p 5180:5180",
       "publishAllPorts": true,
-      "useSSL": true
+      "useSSL": false
     }
   }
 }

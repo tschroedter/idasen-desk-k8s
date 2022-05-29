@@ -2,7 +2,9 @@ using System.Reactive.Concurrency ;
 using Idasen.RESTAPI.Desk.Emulator.Desks ;
 using Idasen.RESTAPI.Desk.Emulator.Idasen ;
 using Idasen.RESTAPI.Desk.Emulator.Interfaces ;
+using Idasen.RESTAPI.MicroService.Shared.Extensions ;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks ;
+using Serilog ;
 
 var builder = WebApplication.CreateBuilder ( args ) ;
 
@@ -17,7 +19,31 @@ builder.Services.AddSingleton < IFakeDesk , FakeDesk > ( ) ;
 builder.Services.AddSingleton < IScheduler > ( TaskPoolScheduler.Default ) ;
 builder.Services.AddHealthChecks();
 
+// todo begin this is the same as code in shared
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+builder.Configuration
+        //.SetBasePath(env.ContentRootPath)
+       .AddJsonFile("appsettings.json",
+                    optional: false,
+                    reloadOnChange: true)
+       .AddJsonFile($"appsettings.{environment}.json",
+                    optional: true)
+       .AddEnvironmentVariables();
+
+// Add logging.
+builder.Logging.ClearProviders();
+builder.Host.UseSerilog((context,
+                         services,
+                         configuration) => configuration.ReadFrom.Configuration(context.Configuration)
+                                                        .ReadFrom.Services(services)
+                                                        .Enrich.FromLogContext()
+                                                        .WriteTo.Console());
+// end
+
 var app = builder.Build ( ) ;
+
+app.LogAppSettings();
 
 app.MapHealthChecks("/healthz");
 app.MapHealthChecks("/healthz/ready",
@@ -38,7 +64,7 @@ if ( app.Environment.IsDevelopment ( ) )
     app.UseSwaggerUI ( ) ;
 }
 
-app.UseHttpsRedirection ( ) ;
+// app.UseHttpsRedirection ( ) ;
 
 app.UseAuthorization ( ) ;
 

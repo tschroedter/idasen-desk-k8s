@@ -53,13 +53,13 @@ public class StartupBackgroundService : BackgroundService
         {
             _logger.Information($"Checking readiness for settings: {settings}...");
 
-            var requestUri = _uriCreator.GetUri(settings);
+            var requestUri = _uriCreator.GetReadinessUri(settings);
 
-            _logger.Information ( $"Checking readiness for {requestUri}..." ) ;
+            _logger.Information ( $"Checking readiness for {requestUri.AbsoluteUri}..." ) ;
 
             using var httpClient = new HttpClient ( ) ;
 
-            var result = await httpClient.GetAsync ( requestUri )
+             var result = await httpClient.GetAsync ( requestUri )
                                          .ConfigureAwait ( false ) ;
 
             _logger.Information ( $"Result for {requestUri}: {result.StatusCode}" ) ;
@@ -69,7 +69,7 @@ public class StartupBackgroundService : BackgroundService
         catch ( Exception e )
         {
             _logger.Error ( e ,
-                            $"Failed - Checking readiness for settings: {settings}" ) ;
+                            $"Failed - Checking readiness for settings: {settings}"  ) ;
 
             return false ;
         }
