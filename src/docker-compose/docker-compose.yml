@@ -1,0 +1,51 @@
+services:
+  idasen.restapi.desk.emulator:
+    build:
+        context: ../
+        dockerfile: C:\Development\GitHub\idasen-desk-k8s\src\Idasen.RESTAPI.Desk.Emulator\Dockerfile
+    environment:
+        ASPNETCORE_ENVIRONMENT:
+    ports:
+      - target: 5080
+        published: 5080
+    networks:
+      - idasen.restapi.docker.compose
+
+  idasen.restapi.desk:
+    build:
+        context: ../
+        dockerfile: C:\Development\GitHub\idasen-desk-k8s\src\Idasen.RESTAPI.Desk\Dockerfile
+    environment:
+        ASPNETCORE_ENVIRONMENT:
+    ports:
+      - target: 5180
+        published: 5180
+    networks:
+      - idasen.restapi.docker.compose
+
+  idasen.restapi.microservice.desk:
+    build:
+        context: ../
+        dockerfile: C:\Development\GitHub\idasen-desk-k8s\src\Idasen.RESTAPI.MicroService.Desk\Dockerfile
+    environment:
+        ASPNETCORE_ENVIRONMENT:
+    ports:
+      - target: 5280
+        published: 5280
+    networks:
+      - idasen.restapi.docker.compose
+
+  idasen.restapi.microservice.desk.height:
+    build:
+        context: ../
+        dockerfile: C:\Development\GitHub\idasen-desk-k8s\src\Idasen.RESTAPI.MicroService.Desk.Height\Dockerfile
+    environment:
+        ASPNETCORE_ENVIRONMENT:
+    ports:
+      - target: 5380
+        published: 5380
+    networks:
+      - idasen.restapi.docker.compose
+
+networks:
+  idasen.restapi.docker.compose:

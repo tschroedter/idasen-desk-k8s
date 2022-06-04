@@ -1,0 +1,11 @@
+services:
+  Idasen-RESTAPI-Desk-Emulator:
+    build: ..\Idasen.RESTAPI.Desk.Emulator\Dockerfile
+    ports:
+      - target: 5080
+        published: 5080
+    networks:
+      - idasen-restapi-docker-compose
+
+networks:
+  idasen-restapi-docker-compose:
