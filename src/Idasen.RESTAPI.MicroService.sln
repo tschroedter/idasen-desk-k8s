@@ -57,11 +57,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose", "docker-co
 		docker-compose\docker-compose.yml = docker-compose\docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Idasen.RESTAPI.Desk.Emulator", "Idasen.RESTAPI.Desk.Emulator", "{FFD0680A-9D54-43ED-8674-2347A8FAB9BC}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose\Idasen.RESTAPI.Desk.Emulator\Dockerfile = docker-compose\Idasen.RESTAPI.Desk.Emulator\Dockerfile
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,7 +96,6 @@ Global
 		{9A2F58F7-A595-4BF5-9707-F4A9AE68AF32} = {4B8845E8-9187-425B-A59D-B962AF9C859D}
 		{4B8845E8-9187-425B-A59D-B962AF9C859D} = {59F2D8CD-9568-4B5A-AB6E-A428C122587A}
 		{6F1CF9CC-0C71-4B06-BE77-364BE0AB2ED4} = {59F2D8CD-9568-4B5A-AB6E-A428C122587A}
-		{FFD0680A-9D54-43ED-8674-2347A8FAB9BC} = {1EDE0157-9097-4CA7-83D4-FACE76E6BCAB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6182A15D-1496-48B3-A5BA-F1CE2AEDED30}
