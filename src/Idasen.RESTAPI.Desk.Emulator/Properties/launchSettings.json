@@ -30,7 +30,7 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5080/desk/",
+      "launchUrl": "http://localhost:5080/desk",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Docker"
       },

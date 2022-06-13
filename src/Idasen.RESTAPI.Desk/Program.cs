@@ -33,7 +33,7 @@ app.MapHealthChecks ( "/healthz/live" ,
                           Predicate = _ => false
                       } ) ;
 
-app.MapGet ( "/desk/" ,
+app.MapGet ( "/desk" ,
              async httpContext =>
              {
                  await app.Services
@@ -42,7 +42,7 @@ app.MapGet ( "/desk/" ,
              } )
    .WithName ( "GetDesk" ) ;
 
-app.MapGet ( "/desk/height/" ,
+app.MapGet ( "/desk/height" ,
              async httpContext =>
              {
                  await app.Services

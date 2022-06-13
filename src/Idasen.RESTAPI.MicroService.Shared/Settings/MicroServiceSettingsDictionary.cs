@@ -25,6 +25,13 @@ public class MicroServiceSettingsDictionary
                 _logger.Warning ( $"Duplicated URL key '{setting.Path}' value is ignored ('{setting}')." ) ;
         }
 
+        _logger.Debug ( $"{nameof(MicroServiceSettingsDictionary)}" );
+
+        foreach ( var key in Keys )
+        {
+            _logger.Debug ( $"{key}: {this[key]}" );
+        }
+
         return this ;
     }
 }
