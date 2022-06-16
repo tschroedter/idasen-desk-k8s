@@ -10,6 +10,8 @@ services:
         published: 5080
     networks:
       - idasen.restapi.docker.compose
+    volumes:
+      - idasen.restapi.docker.logs:/app/logs
 
   idasen.restapi.desk:
     build:
@@ -22,6 +24,8 @@ services:
         published: 5180
     networks:
       - idasen.restapi.docker.compose
+    volumes:
+      - idasen.restapi.docker.logs:/app/logs
 
   idasen.restapi.microservice.desk:
     build:
@@ -34,6 +38,8 @@ services:
         published: 5280
     networks:
       - idasen.restapi.docker.compose
+    volumes:
+      - idasen.restapi.docker.logs:/app/logs
 
   idasen.restapi.microservice.desk.height:
     build:
@@ -46,6 +52,11 @@ services:
         published: 5380
     networks:
       - idasen.restapi.docker.compose
+    volumes:
+      - idasen.restapi.docker.logs:/app/logs
 
 networks:
   idasen.restapi.docker.compose:
+
+volumes:
+  idasen.restapi.docker.logs:
