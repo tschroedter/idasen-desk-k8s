@@ -1,3 +1,4 @@
+version: "3.9"
 services:
   idasen.restapi.desk.emulator:
     build:
@@ -26,6 +27,9 @@ services:
       - idasen.restapi.docker.compose
     volumes:
       - idasen.restapi.docker.logs:/app/logs
+    depends_on:
+      - idasen.restapi.microservice.desk
+      - idasen.restapi.microservice.desk.height
 
   idasen.restapi.microservice.desk:
     build:
@@ -40,6 +44,8 @@ services:
       - idasen.restapi.docker.compose
     volumes:
       - idasen.restapi.docker.logs:/app/logs
+    depends_on:
+      - idasen.restapi.desk.emulator
 
   idasen.restapi.microservice.desk.height:
     build:
@@ -54,6 +60,8 @@ services:
       - idasen.restapi.docker.compose
     volumes:
       - idasen.restapi.docker.logs:/app/logs
+    depends_on:
+      - idasen.restapi.desk.emulator
 
 networks:
   idasen.restapi.docker.compose:

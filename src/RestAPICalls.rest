@@ -1,0 +1,10 @@
+GET http://localhost:5080/desk
+
+GET http://localhost:5080/desk/height
+
+POST http://localhost:5080/desk/height HTTP/1.1
+Content-Type: application/json
+
+{
+    "height": 1000
+}
